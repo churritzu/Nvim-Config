@@ -1,6 +1,7 @@
 return {
 	{
 		"hrsh7th/nvim-cmp",
+		event = "InsertEnter",
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-buffer",
@@ -33,7 +34,7 @@ return {
 		config = function()
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
-			local snippy = require("snippy")
+			-- local snippy = require("snippy")
 			local lspkind = require("lspkind")
 
 			require("luasnip.loaders.from_vscode")
@@ -45,11 +46,11 @@ return {
 				snippet = {
 					expand = function(args)
 						luasnip.lsp_expand(args.body)
-						vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-						snippy.expand_snippet(args.body) -- For `snippy` users.
-						vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-						vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-						lspkind.expand_snippet(args.body)
+						-- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+						-- snippy.expand_snippet(args.body) -- For `snippy` users.
+						-- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+						-- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+						-- lspkind.expand_snippet(args.body)
 					end,
 				},
 				window = {
@@ -64,22 +65,28 @@ return {
 					["<CR>"] = cmp.mapping.confirm({ select = true }),
 				}),
 				sources = cmp.config.sources({
-					{ name = "luasnip" },
 					{ name = "nvim_lsp" },
+					{ name = "luasnip" },
 					{ name = "vsnip" }, -- For vsnip users.
 					{ name = "ultisnips" }, -- For ultisnips users.
 					{ name = "snippy" }, -- For snippy users.
 					{ name = "buffer" },
 					{ name = "path" },
-				}, {
-					{ name = "buffer" },
 				}),
+				---@diagnostic disable-next-line: missing-fields
 				formatting = {
 					format = lspkind.cmp_format({
-						maxwidth=50,
-						ellipsis_char = "..."
-					})
-				}
+						maxwidth = 50,
+						ellipsis_char = "...",
+					}),
+				},
+			})
+
+			cmp.setup.filetype({ "sql" }, {
+				sources = {
+					{ name = "vim-dadbod-completion" },
+					{ name = "buffer" },
+				},
 			})
 
 			-- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
@@ -98,6 +105,7 @@ return {
 				}, {
 					{ name = "cmdline" },
 				}),
+				---@diagnostic disable-next-line: missing-fields
 				matching = { disallow_symbol_nonprefix_matching = false },
 			})
 		end,

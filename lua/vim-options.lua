@@ -1,15 +1,23 @@
 --
 -- Globals
-vim.g.mapleader=","
-vim.cmd("set noexpandtab")
-vim.cmd("set tabstop=4")
-vim.cmd("set shiftwidth=4")
+vim.g.mapleader = ","
+
+vim.cmd("set expandtab")
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
 vim.o.smartindent = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
-vim.cmd("set number")
-vim.cmd("set relativenumber")
-vim.cmd("set nowrap")
+vim.o.number = true
+vim.o.relativenumber = true
+vim.o.wrap = false
+
+-- Folding
+vim.o.foldenable = true
+vim.o.foldcolumn = "1"
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
+vim.o.foldcolumn = "1"
 
 --
 -- Insert Mode
@@ -27,8 +35,8 @@ vim.cmd("noremap <leader>k <C-w>k") -- Move to up pane
 vim.cmd("noremap <leader>l <C-w>l") -- Move to right pane
 
 -- Tabs
-vim.cmd("noremap <Tab> :tabnext<CR>")
-vim.cmd("noremap <S-Tab> :tabprevious<CR>")
+-- vim.cmd("noremap <Tab> :tabnext<CR>")
+-- vim.cmd("noremap <S-Tab> :tabprevious<CR>")
 
 -- windows
 vim.cmd("noremap <leader>nv :vs<cr>") -- Create new vertical window
