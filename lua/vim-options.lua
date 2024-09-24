@@ -12,6 +12,12 @@ vim.o.number = true
 vim.o.relativenumber = true
 vim.o.wrap = false
 
+vim.o.termguicolors = true
+vim.o.scrolloff = 8
+vim.o.clipboard = "unnamed,unnamedplus"
+vim.o.mouse = "a"
+vim.o.colorcolumn = "80"
+
 -- Folding
 vim.o.foldenable = true
 vim.o.foldcolumn = "1"
@@ -29,19 +35,21 @@ vim.cmd("imap jj <Esc>")
 --
 
 -- Navegation
-vim.cmd("noremap <leader>h <C-w>h") -- Move to left pane
-vim.cmd("noremap <leader>j <C-w>j") -- Move to down pane
-vim.cmd("noremap <leader>k <C-w>k") -- Move to up pane
-vim.cmd("noremap <leader>l <C-w>l") -- Move to right pane
+vim.keymap.set("n", "<leader>h", ":wincmd h<cr>", { desc = "Move to left pane" })
+vim.keymap.set("n", "<leader>j", ":wincmd j<cr>", { desc = "Move to down pane" })
+vim.keymap.set("n", "<leader>k", ":wincmd k<cr>", { desc = "Move to up pane" })
+vim.keymap.set("n", "<leader>l", ":wincmd l<cr>", { desc = "Move to right pane" })
+vim.keymap.set("n", "<leader>ek", "<C-w>r", { desc = "Swap Vertical" })
+vim.keymap.set("n", "<leader>el", "<C-w>R", { desc = "Swap Horizonal" })
 
 -- Tabs
 -- vim.cmd("noremap <Tab> :tabnext<CR>")
 -- vim.cmd("noremap <S-Tab> :tabprevious<CR>")
 
 -- windows
-vim.cmd("noremap <leader>nv :vs<cr>") -- Create new vertical window
-vim.cmd("noremap <leader>nh :sp<cr>") -- Create new horizonl window
-vim.cmd("noremap <leader>= <C-w>=") -- Create new horizonl window
+vim.keymap.set("n", "<leader>nv", ":vsplit<cr>", { desc = "Split Vertical" })
+vim.keymap.set("n", "<leader>nh", ":sp<cr>", { desc = "Split Horizonal" })
+vim.keymap.set("n", "<leader>=", "<C-w>=", { desc = "All windows same size." })
 
 -- Code
-vim.cmd("noremap <A-/> :Commentary<cr>") -- Create new horizonl window
+vim.keymap.set("n", "<A-/>", ":Commentary<cr>", { desc = "Toggle Comments" })

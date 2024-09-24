@@ -65,6 +65,7 @@ return {
 					["<CR>"] = cmp.mapping.confirm({ select = true }),
 				}),
 				sources = cmp.config.sources({
+					{ name = "supermaven" },
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
 					{ name = "vsnip" }, -- For vsnip users.
