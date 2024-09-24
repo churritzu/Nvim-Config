@@ -65,13 +65,13 @@ return {
 					["<CR>"] = cmp.mapping.confirm({ select = true }),
 				}),
 				sources = cmp.config.sources({
-					{ name = "supermaven" },
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
+					{ name = "buffer" },
+					{ name = "supermaven" },
 					{ name = "vsnip" }, -- For vsnip users.
 					{ name = "ultisnips" }, -- For ultisnips users.
 					{ name = "snippy" }, -- For snippy users.
-					{ name = "buffer" },
 					{ name = "path" },
 				}),
 				---@diagnostic disable-next-line: missing-fields
@@ -79,6 +79,34 @@ return {
 					format = lspkind.cmp_format({
 						maxwidth = 50,
 						ellipsis_char = "...",
+						symbol_map = {
+							supermaven = "",
+							Text = "",
+							Method = "",
+							Function = "",
+							Constructor = "",
+							Field = "ﰠ",
+							Variable = "",
+							Class = "ﴯ",
+							Interface = "",
+							Module = "",
+							Property = "ﰠ",
+							Unit = "塞",
+							Value = "",
+							Enum = "",
+							Keyword = "",
+							Snippet = "",
+							Color = "",
+							File = "",
+							Reference = "",
+							Folder = "",
+							EnumMember = "",
+							Constant = "",
+							Struct = "פּ",
+							Event = "",
+							Operator = "",
+							TypeParameter = "",
+						},
 					}),
 				},
 			})
