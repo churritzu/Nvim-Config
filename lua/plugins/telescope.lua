@@ -15,10 +15,10 @@ return {
 			telescope.setup({
 				defaults = {
 					file_ignore_patterns = {
-						"^%.git",
-						"^.DS_Store",
-						"^node_modules",
-						"^__pycache__",
+						".git",
+						".DS_Store",
+						"node_modules",
+						"__pycache__",
 						".vscode",
 						"package-lock.json",
 						"Pipfile.lock",
