@@ -3,7 +3,7 @@ return {
 	cmd = "ASToggle",
 	event = { "InsertLeave", "TextChanged" },
 	opts = {
-		-- your config goes here
+		enabled = false,
 		-- or just leave it empty :)
 	},
 }
