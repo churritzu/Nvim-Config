@@ -18,6 +18,7 @@ return {
 				"gitignore",
 				"query",
 				"html",
+				"http",
 				"javascript",
 				"json",
 				"lua",
