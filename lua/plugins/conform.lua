@@ -3,6 +3,7 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	opts = {},
 	config = function()
+		vim.bo.formatexpr = "v:lua.require'conform'.formatexpr()"
 		local conform = require("conform")
 		conform.setup({
 			formatters_by_ft = {
@@ -32,5 +33,12 @@ return {
 				timeout_ms = 1000,
 			})
 		end, { desc = "Format with conform" })
+
+		vim.api.nvim_create_autocmd("FileType", {
+			pattern = { "json", "rest_nvim_result" },
+			callback = function(ev)
+				vim.cmd("%!jq")
+			end,
+		})
 	end,
 }
