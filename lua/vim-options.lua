@@ -1,6 +1,7 @@
 --
 -- Globals
 vim.g.mapleader = ","
+vim.g.maplocalleader = "m"
 
 vim.cmd("set expandtab")
 vim.o.tabstop = 4
@@ -11,6 +12,8 @@ vim.o.smartcase = true
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.wrap = false
+vim.o.splitbelow = true
+vim.o.splitright = true
 
 vim.o.termguicolors = true
 vim.o.scrolloff = 8
@@ -58,4 +61,4 @@ vim.keymap.set("n", "<leader>=", "<C-w>=", { desc = "All windows same size." })
 
 -- Code
 vim.keymap.set("n", "<A-/>", ":Commentary<cr>", { desc = "Toggle Comments" })
-vim.keymap.set("n", "<leader>rp", ":!./phpunit<cr>", { desc = "Run PHPUnit" })
+vim.keymap.set("n", "<localleader>rp", ":!./phpunit<cr>", { desc = "Run PHPUnit" })
