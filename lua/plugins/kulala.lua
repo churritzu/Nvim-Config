@@ -19,7 +19,7 @@ return {
 		})
 		vim.keymap.set(
 			"n",
-			"<leader>rr",
+			"<leader>ra",
 			"<cmd>lua require('kulala').run_all()<CR>",
 			{ noremap = true, desc = "Execute all request in the current buffer" }
 		)
