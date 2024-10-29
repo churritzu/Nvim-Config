@@ -20,6 +20,12 @@ return {
 		vim.keymap.set(
 			"n",
 			"<leader>rr",
+			"<cmd>lua require('kulala').run_all()<CR>",
+			{ noremap = true, desc = "Execute all request in the current buffer" }
+		)
+		vim.keymap.set(
+			"n",
+			"<leader>rr",
 			"<cmd>lua require('kulala').run()<CR>",
 			{ noremap = true, desc = "Execute the Request" }
 		)
@@ -34,6 +40,12 @@ return {
 			"<leader>rs",
 			"<cmd>lua require('kulala').show_stats()<CR>",
 			{ noremap = true, desc = "Show status of the last Request" }
+		)
+		vim.keymap.set(
+			"n",
+			"<leader>rt",
+			"<cmd>lua require('kulala').scrathcpad()<CR>",
+			{ noremap = true, desc = "Show scratchpad" }
 		)
 	end,
 }
