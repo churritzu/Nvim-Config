@@ -71,6 +71,7 @@ return {
 					{ name = "supermaven" },
 					{ name = "vsnip" }, -- For vsnip users.
 					{ name = "ultisnips" }, -- For ultisnips users.
+					{ name = "emoji" },
 					{ name = "snippy" }, -- For snippy users.
 					{ name = "path" },
 				}),

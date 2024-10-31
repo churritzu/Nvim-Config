@@ -14,6 +14,7 @@ return {
 			local telescope_tabs = require("telescope-tabs")
 			telescope.load_extension("fzf")
 			telescope.load_extension("telescope-tabs")
+			telescope.load_extension("emoji")
 
 			telescope.setup({
 				defaults = {
